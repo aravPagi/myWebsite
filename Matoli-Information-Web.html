@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matoli Information - Your Complete Guide to Fruits In Ganesh Chaturthi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        .search-box {
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        .fruits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .fruit-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .fruit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .fruit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .fruit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .fruit-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .fruit-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: bounce 2s infinite;
+        }
+
+        .fruit-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .fruit-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .fruit-scientific {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .fruit-description {
+            margin-bottom: 20px;
+            color: #34495e;
+            font-size: 1rem;
+        }
+
+        .nutrition-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .nutrition-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .benefits {
+            margin-top: 15px;
+        }
+
+        .benefits h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .benefits ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .benefits li {
+            background: #ecf0f1;
+            margin: 5px 0;
+            padding: 8px 12px;
+            border-radius: 15px;
+            border-left: 4px solid #3498db;
+            font-size: 0.9rem;
+        }
+
+
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .fruits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .nutrition-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Matoli Information</h1>
+            <p class="subtitle">Discover the amazing world of matoli fruits in ganesh chaturthi</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchBox" placeholder="Search for matoli...">
+        </div>
+
+
+
+        <div class="fruits-grid" id="fruitsGrid">
+            <!-- Fruit cards will be dynamically generated -->
+        </div>
+    </div>
+
+    <script>
+        const fruitsData = [
+            {
+                name: "आंब्या ताळे(Aambya Tale)",
+                image: "https://m.media-amazon.com/images/I/31id6nsvXQL._QL70_FMwebp_.jpg",
+                scientific: "Mango Leaves",
+                description: "Mango leaves form an important part of Hindu religion .",
+                nutrition: {
+                },
+                benefits: [
+                    "Mango leaves form an important part of Hindu religion.",
+                    "They are tied to 'matoli' & 'doors' on all auspicious occasions."
+                ]
+            },
+            {
+                name: "नाल्ल (nall)",
+                image: "https://m.media-amazon.com/images/I/51AT8wyDtqL._SY300_SX300_QL70_FMwebp_.jpg",
+                scientific: "Coconut (Cocos nucifera)",
+                description: "Planted throughout the state . It grows & yields better near seacoast than the inland.",
+                nutrition: {
+                    Sanskrit: "नारिकेल",
+                    Hindi: "नारियल",
+                },
+                benefits: [
+                    "All the parts of the tree and fruit are used .",
+                    "It forms the source of income for many family ."
+                ]
+            },
+            {
+                name: "केवणीचे व्हाय (Kevniche Dor)",
+                image: "https://www.iafaforallergy.com/wp-content/uploads/2023/11/Avartani-Helicteres-Isora-1.jpg.webp",
+                scientific: "Helicteres Isora",
+                description: "A small tree or large sub-deciduous shrub with grey bark and alternate, ovate, hairy leaves. ",
+                nutrition: {
+                    Hindi: "Mororphali",
+                    Kannada : "Yedmuri",
+                    Marathi : "Muradsheng",
+                    Tamil : "Valampuri",
+                },
+                benefits: [
+                    "A strong fibre is extracted from the bark.",
+                    "Matoli items are traditionally tied only with this fibre.",
+                    "Natural energy sourceFruits are used in intestinal complaints like colic, dysentry, diarrhoea and to improve appetite.",
+                    "Wood is used for gumpowder and charcoal."
+                ]
+            },
+            {
+                name: "बेड्या कात्रे (Bedya Katre)",
+                image: "https://nurserylive.com/cdn/shop/products/nurserylive-seeds-areca-catechu-betel-palm-0-5-kg-seeds-16968599273612_600x600.jpg?v=1634213608",
+                scientific: "Areca Catechu",
+                description: "It is a species of palm tree, commonly known as the areca nut or betel nut palm, cultivated throughout tropical Asia for its stimulating and psychoactive seed.",
+                nutrition: {
+                    "Konkani (Also called)" : "Supari",
+                    Marathi : "Supari, Pophat",
+                    Kannada : "Adike",
+                    Hindi : "Supari"
+                },
+                benefits: [
+                    "Cultural and ritualistic use: The areca nut is an auspicious offering in Hindu religious ceremonies, weddings, and as a symbolic exchange of hospitality.",
+                    "Masticatory stimulant: The nut is chewed, often with betel leaf, as a mild stimulant for its energizing and refreshing effect.",
+                    "Traditional medicine: In Ayurvedic practices, areca nut is used to treat intestinal worms, dental plaque, and digestive problems.",
+                    "Industrial products: The fibrous parts of the palm are processed into eco-friendly plates, paperboards, and other building and handicraft materials. "
+                ]
+            },
+            {
+                name: "कुड्ड्या कात्रे (Kuddya Katre)",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/%E0%B4%AA%E0%B4%BE%E0%B4%B2%E0%B4%AF%E0%B5%8D%E0%B4%95%E0%B5%8D%E0%B4%95.JPG/500px-%E0%B4%AA%E0%B4%BE%E0%B4%B2%E0%B4%AF%E0%B5%8D%E0%B4%95%E0%B5%8D%E0%B4%95.JPG",
+                scientific: "Tabernaemontana Alternifolia",
+                description: "It is a small, deciduous tree of the Western Ghats, characterized by its white, fragrant flowers, bright orange-yellow, beaked capsules, and medicinal uses, particularly for skin and respiratory issues.",
+                nutrition: {
+                    "Konkani (Also called)" : "NagulKudo",
+                    Marathi : "Nagkuda",
+                    Kannada : "Bilikodsalu or Maddarasa"
+                },
+                benefits: [
+                    "Antimicrobial properties, especially against drug-resistant bacteria causing skin infections.",
+                    "Antidote for snakebites, a practice observed among some Indian tribes.",
+                    "Therapeutic use for skin ailments, including wounds, ulcers, and other skin diseases.",
+                    "Treatment of various illnesses, including diabetes, respiratory problems, and hepatic and renal disorders. "
+                ]
+            },
+            {
+                name: "माट्टी कात्रे (Matti Katre) (Arjun Tree)",
+                image: "https://herbalogy.in/wp-content/uploads/2018/03/Arjuna-Tree-Benefits.jpg",
+                scientific: "Terminalia Crenulata Roth",
+                description: "It is a large deciduous tree native to southern and southeastern Asia, valued for its high-quality timber.",
+                nutrition: {
+                    "Konkani(tree name)" : "Matti",
+                    Hindi : "Asan, Saj, Ashaina, Kaouha",
+                    Marathi : "Ain, Asan, Sadar",
+                    Kannada : "Karimatti, Matti, Sadar"
+                },
+                benefits: [
+                    "For timber and construction: The wood is highly valued for its durability and strength, making it suitable for furniture, cabinetry, boat-building, and railroad ties.",
+                    "As a food source for silkworms: The leaves serve as fodder for the Antheraea paphia silkworm, which produces the commercially important tasar silk.",
+                    "For dyeing and tanning: The bark and fruit are rich in tannins, which are used to produce dyes and in the process of tanning leather. "
+                ]
+            },
+            {
+                name: "खिळ खिळे(Khil Khile)",
+                image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Connarus_paniculatus_13.JPG",
+                scientific: "Connarus monocarpus",
+                description: "It is a species of flowering shrub native to Peninsular India and Sri Lanka, known for its medicinal uses in Ayurveda.",
+                nutrition: {
+                    "Konkani also called " : "घागय्रो (Ghagryo)",
+                    Kannada : "Torolakka, Tolage, Toliga",
+                    Marathi : "Sumdari or Sundar",
+                    Tamil : "Chettupulukodi"
+                },
+                benefits: [
+                    "For festive decorations: In some regions, like Goa, the fruits are used as part of the 'matoli', a decorative arrangement during the Ganesh Puja festival.",
+                    "For skin ailments: The bark of the plant is used in traditional medicine, often applied topically as a paste or wash to treat ulcers, wounds, and other skin infections. A paste from the flowers is traditionally used for skin conditions like eczema.",
+                    "Bark extracts have shown antibacterial properties against pathogens like Staphylococcus aureus and Pseudomonas aeruginosa",
+                    "For internal illnesses: In traditional systems, the plant is used to treat a variety of internal ailments, including poisoning, worm infections, blood diseases, and as an aphrodisiac. "
+                ]
+            },
+            {
+                name: "कांगोणा (Kangona)",
+                image: "https://www.phytojournal.com/vol3Issue3/11.1.png",
+                scientific: "Celastrus paniculatus Willd",
+                description: "It is a large, woody climbing shrub from the bittersweet family (Celastraceae) whose seed oil is highly valued in Ayurvedic medicine as a potent brain tonic.",
+                nutrition: {
+                    "Konkani (Also called)" : "Kanglyo"
+                },
+                benefits: [
+                    "Cognitive Enhancement: Used as a brain tonic to improve memory, intellect, and focus.",
+                    "Joint and Nerve Pain Relief: Applied externally as an oil to treat rheumatism, arthritis, and paralysis due to its anti-inflammatory properties.",
+                    "Mental Wellness: Helps manage psychological issues like anxiety, depression, and stress by calming the nervous system.",
+                    "Skin and Hair Health: The oil nourishes the scalp to promote hair growth and is used topically to treat skin conditions like eczema and ulcers. "
+                ]
+            },
+            {
+                name: "निरपनस (Nirpanas)",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Artocarpus_altilis_%28fruit%29.jpg/320px-Artocarpus_altilis_%28fruit%29.jpg",
+                scientific: "Artocarpus Incisus",
+                description: "It is a tropical tree prized for its starchy, nutritious fruit, which when cooked, has a potato-like flavor and a bread-like texture.",
+                nutrition: {
+                    "Konkani (Also called)" : "Jivi kadgi or kadgi",
+                    Marathi : "Nirphanas",
+                    Kannada : "Deevi halasu, gujjekai",
+                    Hindi : "safed kathal"
+                },
+                benefits: [
+                    "It is used to eat as a seasonal vegetable"
+                ]
+            },
+            {
+                name: "घोसाळे (Ghosale)",
+                image: "https://urjaseeds.com/cdn/shop/products/ridgegourdjaipurlong_2_540x.jpg?v=1668593637",
+                scientific: "Ridge gourd (Luffa acutangula)",
+                description: "It is an edible, subtropical vine from the cucumber family known for its distinctive, ridged fruit.",
+                nutrition: {
+                    Hindi : "Turai, Tori, or Nenua",
+                    Marathi : "Dodka or Shirali",
+                    Kannada : "Heerekayi"
+                },
+                benefits: [
+                    "As a vegetable: Young, tender ridge gourds are a mild-flavored, nutritious vegetable used in curries, stir-fries, and soups throughout Asian cuisine.",
+                    "As a loofah: The mature, dried fruit of the ridge gourd becomes a fibrous, natural body and skin exfoliator.",
+                    "In traditional medicine: Various parts of the ridge gourd plant, including the leaves and fruit, are used in Ayurvedic and other traditional practices to treat ailments.",
+                    "As a dietary aid: High in fiber and low in calories, ridge gourd supports digestion and can aid in weight management. "
+                ]
+            },
+            {
+                name: "सीताफळ (Sitaphal)",
+                image: "https://www.saharanpurnursery.in/cdn/shop/files/custardapplegreen_800x800.jpg?v=1718608961",
+                scientific: "Custard Apple (Annona squamosa)",
+                description: "a tropical fruit known for its creamy, sweet flesh. It is a nutrient-dense fruit that offers a variety of health benefits. ",
+                nutrition: {
+                },
+                benefits: [
+                    "Jams and sauces: Sitaphal pulp can be used to create delicious jams, syrups, and fruit sauces for cakes and roasts.",
+                    "Baby food: The soft, energy-rich pulp is a popular and nutritious food for infants.",
+                    "Salads: Chunks of sitaphal can be added to fruit salads for a unique creamy flavor and texture. "
+                ]
+            },
+            {
+                name: "आपोल (Apple)",
+                image: "https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=6.0.84",
+                scientific: "Malus domestica",
+                description: "Not grown in Goa but tied to matoli just as a fruit.",
+                nutrition: {
+                },
+                benefits: [
+                    "Eaten fresh – most common way.",
+                    "Juices & Cider – apple juice is common, while apple cider (fermented) is less common in India.",
+                    "Desserts – apple pie, apple halwa, kheer, barfi, apple jalebi, etc.",
+                    "Pickles & Chutneys – especially in Himachal and Kashmir (spiced apple chutney)."
+                ]
+            },
+            {
+                name: "NOTE!",
+                image: "https://media.istockphoto.com/id/1195839109/vector/harmful-symbol-warning-sign-vector-illustration-eps10.jpg?s=612x612&w=0&k=20&c=1f_viYDt3__7GvDE9UTl2EL0-FMeXKGyYtVn97kzZys=",
+                scientific: "!!Very Important For Readers!!",
+                description: "As the Information of matoli is taken from many many sources of most south goa, it may vary from the other places.The Images may also vary as they are taken from internet.If any changes that any fruit/vegetable is called with adifferent name or want to add more matoli items can please contact 7414922988.",
+                nutrition: {
+                },
+                benefits: [
+                    "This will help me to improve the website quality to make aware the new generations about the tradition of goa ."
+                ]
+            }
+        ];
+
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        function renderFruits() {
+            const grid = document.getElementById('fruitsGrid');
+            const filteredFruits = fruitsData.filter(fruit => {
+                const matchesSearch = fruit.name.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesSearch;
+            });
+
+            grid.innerHTML = filteredFruits.map(fruit => `
+                <div class="fruit-card">
+                    <div class="fruit-header">
+                        <img src="${fruit.image}" alt="${fruit.name}" class="fruit-image" loading="lazy">
+                        <div>
+                            <div class="fruit-title">${fruit.name}</div>
+                            <div class="fruit-scientific">${fruit.scientific}</div>
+                        </div>
+                    </div>
+                    <div class="fruit-description">${fruit.description}</div>
+                    <div class="nutrition-grid">
+                        ${Object.entries(fruit.nutrition).map(([key, value]) => 
+                            `<div class="nutrition-item">${key}: ${value}</div>`
+                        ).join('')}
+                    </div>
+                    <div class="benefits">
+                        <h4>Uses:</h4>
+                        <ul>
+                            ${fruit.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Search functionality
+        document.getElementById('searchBox').addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            renderFruits();
+        });
+
+        // Initial render
+        renderFruits();
+    </script>
+    </div>
+
+    <footer style="text-align: center; margin-top: 40px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 15px; color: white;">
+        <p>2025 Matoli Information Website.</p>
+        <p>Created and maintained with dedication to preserve Goan traditions</p>
+        <p>Created by arav pagi (13 yrs)</p>
+        <p>For updates and corrections, contact: 7414922988 and email me at aravpagi06@gmail.com</p>
+    </footer>
+
+    </script>
+</body>
+</html>
