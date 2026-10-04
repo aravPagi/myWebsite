@@ -1,515 +1,1112 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matoli Information - Your Complete Guide to Fruits In Ganesh Chaturthi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matoli Information – Ganesh Chaturthi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
+            margin: 0
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font: 400 1.05rem/1.6 'Mukta', Arial, sans-serif;
+            color: #3b0a45;
             min-height: 100vh;
+            overflow-x: hidden;
+            background: #ff2e7e
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            color: white;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-
-        .search-container {
-            margin-bottom: 30px;
-            text-align: center;
-            animation: fadeIn 1s ease-out 1s both;
-        }
-
-        .search-box {
-            padding: 15px 20px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 50px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-box:focus {
-            transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-        }
-
-        .fruits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .fruit-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+        .torana {
             position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
+            padding-top: 12px
         }
 
-        .fruit-card::before {
-            content: '';
+        .cordtop {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            height: 12px;
+            background: repeating-linear-gradient(135deg, #ffd400 0 8px, #b0004a 8px 16px);
+            box-shadow: 0 4px 6px #0004;
+            z-index: 1
         }
 
-        .fruit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .fruit-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .fruit-header {
+        .row {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .fruit-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            animation: bounce 2s infinite;
-        }
-
-        .fruit-image:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        .fruit-title {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            font-weight: bold;
-        }
-
-        .fruit-scientific {
-            font-style: italic;
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .fruit-description {
-            margin-bottom: 20px;
-            color: #34495e;
-            font-size: 1rem;
-        }
-
-        .nutrition-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            justify-content: center;
             gap: 10px;
-            margin-bottom: 15px;
+            height: 112px;
+            overflow: hidden
         }
 
-        .nutrition-item {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
+        .u {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: none;
+            transform-origin: 50% 0;
+            animation: flap 2.6s ease-in-out infinite alternate
+        }
+
+        .st {
+            width: 2px;
+            height: 20px;
+            background: #ffd400
+        }
+
+        .mg {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #b71c1c 0 14%, #0000 15%), repeating-conic-gradient(#ff9800 0 18deg, #ffc107 18deg 36deg);
+            box-shadow: 0 3px 6px #0005
+        }
+
+        header {
             text-align: center;
-            font-size: 0.8rem;
-            font-weight: bold;
+            color: #fff;
+            padding: 20px 16px 6px
         }
 
-        .benefits {
-            margin-top: 15px;
+        .bappa {
+            display: inline-block;
+            background: #ffd400;
+            color: #b0004a;
+            font-weight: 700;
+            padding: 4px 20px;
+            border-radius: 999px;
+            transform: rotate(-2deg);
+            box-shadow: 0 4px 0 #b0004a
         }
 
-        .benefits h4 {
-            color: #2c3e50;
-            margin-bottom: 8px;
+        h1 {
+            font: 400 clamp(2.8rem, 10vw, 6rem)/1.05 'Yatra One', Georgia, serif;
+            margin: 14px 0 4px;
+            color: #fff6a8;
+            text-shadow: 3px 3px 0 #b0004a, 6px 6px 0 #5a0f8a
+        }
+
+        header p {
+            max-width: 36em;
+            margin: 10px auto;
             font-size: 1.1rem;
+            text-shadow: 0 1px 3px #0006
         }
 
-        .benefits ul {
-            list-style: none;
-            padding-left: 0;
+        .find {
+            width: min(380px, 90%);
+            padding: 13px 24px;
+            font: inherit;
+            border: 4px solid #ffd400;
+            border-radius: 999px;
+            outline: none;
+            text-align: center;
+            background: #fff;
+            color: #3b0a45;
+            box-shadow: 0 6px 0 #b0004a
         }
 
-        .benefits li {
-            background: #ecf0f1;
-            margin: 5px 0;
-            padding: 8px 12px;
-            border-radius: 15px;
-            border-left: 4px solid #3498db;
-            font-size: 0.9rem;
+        .find:focus {
+            transform: scale(1.04)
         }
 
-
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
+        .diya {
+            position: fixed;
+            bottom: 12px;
+            font-size: 40px;
+            animation: flick 1.2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 14px #ffd400);
+            z-index: 2;
+            pointer-events: none
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 12px 22px;
+            max-width: 1150px;
+            margin: 30px auto 0;
+            padding: 0 16px
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .slot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: opacity .3s, scale .3s;
+            animation: dropin .9s cubic-bezier(.2, 1.4, .4, 1) calc(var(--i)*.09s + .4s) backwards
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+        .slot.off {
+            opacity: .18;
+            scale: .9
         }
 
-        @media (max-width: 768px) {
-            .fruits-grid {
-                grid-template-columns: 1fr;
+        .rope {
+            width: 4px;
+            height: var(--l);
+            background: repeating-linear-gradient(#ffd400 0 6px, #b0004a 6px 12px);
+            border-radius: 2px
+        }
+
+        .card {
+            width: 100%;
+            max-width: 270px;
+            text-align: center;
+            padding: 18px 14px 16px;
+            border: 0;
+            border-radius: 26px;
+            cursor: pointer;
+            font: inherit;
+            color: #3b0a45;
+            background: linear-gradient(#fffbe0, #ffe9a8);
+            box-shadow: 0 0 0 5px var(--c), 0 12px 0 5px color-mix(in srgb, var(--c) 60%, #000), 0 20px 28px #0005;
+            transform-origin: 50% -20px;
+            animation: sway var(--t) ease-in-out var(--d) infinite alternate
+        }
+
+        .card:hover,
+        .card:focus-visible {
+            animation-play-state: paused;
+            scale: 1.07
+        }
+
+        .card:focus-visible {
+            outline: 4px solid #fff
+        }
+
+        .ph {
+            width: 124px;
+            height: 124px;
+            border-radius: 50%;
+            margin: -52px auto 10px;
+            display: grid;
+            place-items: center;
+            font-size: 54px;
+            background: #fff;
+            border: 6px solid var(--c);
+            box-shadow: 0 8px 16px #0004;
+            overflow: hidden
+        }
+
+        .ph img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .nm {
+            display: block;
+            font: 400 1.55rem/1.15 'Yatra One', Georgia, serif;
+            color: var(--c)
+        }
+
+        .en {
+            display: block;
+            font-weight: 700
+        }
+
+        .sc {
+            display: block;
+            font-style: italic;
+            font-size: .88rem;
+            opacity: .8
+        }
+
+        .tap {
+            display: inline-block;
+            margin-top: 10px;
+            background: var(--c);
+            color: #fff;
+            font-weight: 700;
+            font-size: .85rem;
+            padding: 3px 14px;
+            border-radius: 999px
+        }
+
+        .veil {
+            position: fixed;
+            inset: 0;
+            background: #2a0a4acc;
+            display: none;
+            place-items: center;
+            padding: 16px;
+            z-index: 9
+        }
+
+        .veil.on {
+            display: grid
+        }
+
+        .sheet {
+            background: linear-gradient(#fffbe0, #ffe9a8);
+            width: min(620px, 100%);
+            max-height: 90vh;
+            overflow: auto;
+            border-radius: 30px;
+            border: 6px solid var(--c);
+            box-shadow: 0 0 0 6px #ffd400, 0 20px 50px #000a;
+            padding: 24px;
+            animation: pop .3s ease-out
+        }
+
+        .sheet .top {
+            display: flex;
+            gap: 16px;
+            align-items: center
+        }
+
+        .sheet .ph {
+            margin: 0;
+            flex: none;
+            width: 100px;
+            height: 100px;
+            font-size: 44px
+        }
+
+        .sheet h2 {
+            font: 400 2rem/1.1 'Yatra One', Georgia, serif;
+            color: var(--c)
+        }
+
+        .names {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0
+        }
+
+        .names b {
+            background: var(--c);
+            color: #fff;
+            border-radius: 999px;
+            padding: 2px 13px;
+            font-size: .88rem
+        }
+
+        .sheet ul {
+            padding-left: 1.2em;
+            display: grid;
+            gap: 7px;
+            margin-top: 8px
+        }
+
+        .sheet li::marker {
+            color: var(--c)
+        }
+
+        .x {
+            float: right;
+            margin-left: 10px;
+            border: 0;
+            background: #b0004a;
+            color: #fff;
+            font: 700 1rem 'Mukta', sans-serif;
+            border-radius: 999px;
+            padding: 6px 18px;
+            cursor: pointer
+        }
+
+        .note {
+            max-width: 660px;
+            margin: 56px auto 0;
+            padding: 24px;
+            background: #fff6a8;
+            border: 5px dashed #b0004a;
+            border-radius: 24px;
+            text-align: center
+        }
+
+        .note h3 {
+            font: 400 1.6rem 'Yatra One', Georgia, serif;
+            color: #b0004a
+        }
+
+        footer {
+            text-align: center;
+            color: #fff;
+            padding: 34px 16px 90px;
+            text-shadow: 0 1px 3px #0006
+        }
+
+        /* ---- animations (transform + opacity only, so they stay smooth) ---- */
+        :root {
+            --ease: cubic-bezier(.33, 1, .68, 1);
+            --sine: cubic-bezier(.45, .05, .55, .95);
+            --o: 4.7s
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            transform: translateZ(0);
+            background: radial-gradient(circle, #ffffff30 2px, #0000 3px) 0 0/34px 34px, linear-gradient(165deg, #ff8a00, #ff2e7e 48%, #7b2ff7)
+        }
+
+        .torana {
+            animation: hangdown 1.5s var(--ease) calc(var(--o) + .1s) backwards
+        }
+
+        .bappa {
+            transform: none;
+            animation: rise 1.1s var(--ease) calc(var(--o) + .6s) backwards, wig 4.5s var(--sine) calc(var(--o) + 2s) infinite
+        }
+
+        h1 {
+            animation: rise 1.5s var(--ease) calc(var(--o) + .3s) backwards
+        }
+
+        header p {
+            animation: rise 1.3s var(--ease) calc(var(--o) + .8s) backwards
+        }
+
+        .find {
+            animation: rise 1.3s var(--ease) calc(var(--o) + 1s) backwards
+        }
+
+        .slot {
+            transition: opacity .5s, scale .5s var(--ease);
+            animation: dropin 1.3s var(--ease) calc(var(--o) + .6s + var(--i)*.08s) backwards
+        }
+
+        .card {
+            transition: scale .5s var(--ease);
+            will-change: transform;
+            animation-timing-function: var(--sine)
+        }
+
+        .card:active {
+            scale: .96
+        }
+
+        .ph img {
+            transition: transform .7s var(--ease)
+        }
+
+        .card:hover .ph img {
+            transform: scale(1.12)
+        }
+
+        .u {
+            animation: flap 4.5s var(--sine) infinite alternate;
+            will-change: transform
+        }
+
+        .diya {
+            animation: flick 2.6s var(--sine) infinite alternate
+        }
+
+        .petal {
+            position: fixed;
+            top: -50px;
+            z-index: 1;
+            pointer-events: none;
+            will-change: transform, opacity;
+            animation: fall linear infinite
+        }
+
+        .cf {
+            position: fixed;
+            width: 9px;
+            height: 14px;
+            border-radius: 2px;
+            z-index: 60;
+            pointer-events: none;
+            animation: burst 1.5s cubic-bezier(.15, .7, .3, 1) forwards
+        }
+
+        .veil.on {
+            animation: fade .35s ease
+        }
+
+        .veil.out {
+            animation: fadeout .3s ease forwards
+        }
+
+        .sheet {
+            animation: pop .55s var(--ease)
+        }
+
+        .veil.out .sheet {
+            animation: popout .3s ease forwards
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.1s, transform 1.1s var(--ease)
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none
+        }
+
+        /* intro: gates of the Ganesh pandal (pure CSS, hides itself, never blocks clicks) */
+        #intro {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            overflow: hidden;
+            cursor: pointer;
+            background: #1b0a14;
+            animation: introfade .9s ease 5.1s forwards
+        }
+
+        .scene {
+            position: absolute;
+            inset: 0;
+            perspective: 1200px
+        }
+
+        .world {
+            position: absolute;
+            inset: 0;
+            transform-style: preserve-3d;
+            will-change: transform;
+            animation: dolly 6s linear forwards
+        }
+
+        .gate {
+            position: absolute;
+            inset: 0;
+            transform-style: preserve-3d
+        }
+
+        .glow {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transform: translateZ(-10px);
+            background: radial-gradient(circle at 50% 55%, #fff6a8, #ffb300aa 35%, #0000 72%);
+            animation: flash 2.4s ease-in-out 2.5s forwards
+        }
+
+        .inner {
+            position: absolute;
+            inset: 0;
+            transform: translateZ(-700px) scale(1.8);
+            overflow: hidden;
+            background: radial-gradient(circle, #ffe082, #ff9800 28%, #c2185b 60%, #2a0a4a)
+        }
+
+        .rays {
+            position: absolute;
+            inset: -50%;
+            background: repeating-conic-gradient(#fff6a844 0 7deg, #0000 7deg 18deg);
+            animation: spin 40s linear infinite
+        }
+
+        .om {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-55%);
+            text-align: center;
+            font: 400 clamp(7rem, 30vw, 16rem)/1 'Yatra One', Georgia, serif;
+            color: #ffe27a;
+            text-shadow: 0 0 40px #ffb300, 0 0 90px #ff6d00
+        }
+
+        .lamps {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 12%;
+            text-align: center;
+            font-size: clamp(1.6rem, 6vw, 3rem);
+            letter-spacing: .4em;
+            animation: flick 1.6s var(--sine) infinite alternate
+        }
+
+        .pil {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: clamp(26px, 6vw, 70px);
+            transform: translateZ(60px);
+            border: 3px solid #ffd400;
+            box-shadow: 0 0 24px #000a;
+            background: radial-gradient(circle, #ffeb3b 0 4px, #ff9800 5px 9px, #0000 10px) 50% 0/100% 26px repeat-y, linear-gradient(90deg, #3a0d03, #8a2d0a 50%, #3a0d03)
+        }
+
+        .pl {
+            left: 0
+        }
+
+        .pr {
+            right: 0
+        }
+
+        .skipt {
+            position: absolute;
+            bottom: 14px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: .85rem;
+            color: #fff;
+            opacity: .85;
+            z-index: 5
+        }
+
+        .door {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50.4%;
+            backface-visibility: hidden;
+            will-change: transform;
+            box-shadow: inset 0 0 70px #000b;
+            background: radial-gradient(circle, #ffd400 0 2.5px, #0000 3.5px) 0 0/38px 38px, linear-gradient(90deg, #4a1204, #7a2509 50%, #4a1204)
+        }
+
+        .door::before {
+            content: "";
+            position: absolute;
+            inset: 27% 9% 7%;
+            border: 6px solid #ffd400;
+            border-radius: 14px;
+            background: #0003;
+            box-shadow: inset 0 0 30px #000a
+        }
+
+        .door::after {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 60%;
+            transform: translateY(-50%);
+            text-align: center;
+            font: 400 clamp(2.2rem, 8.5vw, 5.5rem)/1 'Yatra One', Georgia, serif;
+            color: #ffd400;
+            text-shadow: 0 3px 0 #3a0d03
+        }
+
+        .door.l {
+            left: 0;
+            transform-origin: 0 50%;
+            border-right: 4px solid #ffd400;
+            animation: swingl 2.1s cubic-bezier(.65, 0, .35, 1) 2.5s forwards
+        }
+
+        .door.r {
+            right: 0;
+            transform-origin: 100% 50%;
+            border-left: 4px solid #ffd400;
+            animation: swingr 2.1s cubic-bezier(.65, 0, .35, 1) 2.5s forwards
+        }
+
+        .l::after {
+            content: "श्री"
+        }
+
+        .r::after {
+            content: "गणेश"
+        }
+
+        .h {
+            position: absolute;
+            top: 58%;
+            width: 36px;
+            height: 36px;
+            border: 6px solid #ffd400;
+            border-radius: 50%;
+            box-shadow: 0 3px 6px #000a
+        }
+
+        .l .h {
+            right: 14px
+        }
+
+        .r .h {
+            left: 14px
+        }
+
+        .arch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            transform: translateZ(100px);
+            height: clamp(130px, 24vh, 210px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(#ff6d00, #e91e63);
+            border-bottom: 8px solid #ffd400;
+            box-shadow: 0 12px 26px #0008
+        }
+
+        .arch::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100%;
+            height: 26px;
+            background: radial-gradient(circle at 50% 50%, #ffeb3b 0 4px, #ff9800 5px 10px, #e65100 11px 12px, #0000 13px) 0 0/28px 26px repeat-x
+        }
+
+        .bulbs {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            height: 14px
+        }
+
+        .bulbs::before,
+        .bulbs::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, #fff176 0 5px, #0000 6px) 0 0/48px 14px repeat-x;
+            animation: blink 1s var(--sine) infinite alternate
+        }
+
+        .bulbs::after {
+            background: radial-gradient(circle, #ff80ab 0 5px, #0000 6px) 24px 0/48px 14px repeat-x;
+            animation-direction: alternate-reverse
+        }
+
+        .bp {
+            font: 400 clamp(1.5rem, 6.6vw, 3rem)/1.15 'Yatra One', Georgia, serif;
+            color: #fff6a8;
+            text-shadow: 0 3px 0 #5a0f8a;
+            padding: 14px 12px 0;
+            animation: rise 1.2s var(--ease) .4s backwards
+        }
+
+        .sm {
+            font-size: .95rem;
+            margin-top: 4px;
+            animation: rise 1.2s var(--ease) .8s backwards
+        }
+
+        @keyframes sway {
+            from {
+                transform: rotate(-2deg)
             }
-            
-            h1 {
-                font-size: 2rem;
+
+            to {
+                transform: rotate(2deg)
             }
-            
-            .nutrition-grid {
-                grid-template-columns: 1fr;
+        }
+
+        @keyframes flap {
+            from {
+                transform: rotate(-3deg)
+            }
+
+            to {
+                transform: rotate(3deg)
+            }
+        }
+
+        @keyframes flick {
+            from {
+                transform: scale(1)
+            }
+
+            to {
+                transform: scale(1.1)
+            }
+        }
+
+        @keyframes wig {
+
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+
+            25% {
+                transform: rotate(-2deg)
+            }
+
+            75% {
+                transform: rotate(2deg)
+            }
+        }
+
+        @keyframes rise {
+            from {
+                transform: translateY(26px);
+                opacity: 0
+            }
+
+            to {
+                transform: none;
+                opacity: 1
+            }
+        }
+
+        @keyframes dropin {
+            from {
+                transform: translateY(-70px);
+                opacity: 0
+            }
+
+            to {
+                transform: none;
+                opacity: 1
+            }
+        }
+
+        @keyframes hangdown {
+            from {
+                transform: translateY(-100px);
+                opacity: 0
+            }
+
+            to {
+                transform: none;
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeout {
+            to {
+                opacity: 0
+            }
+        }
+
+        @keyframes pop {
+            from {
+                transform: translateY(26px) scale(.95);
+                opacity: 0
+            }
+
+            to {
+                transform: none;
+                opacity: 1
+            }
+        }
+
+        @keyframes popout {
+            to {
+                transform: translateY(16px) scale(.96);
+                opacity: 0
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translate3d(0, -8vh, 0) rotate(0);
+                opacity: 0
+            }
+
+            8% {
+                opacity: .85
+            }
+
+            50% {
+                transform: translate3d(45px, 55vh, 0) rotate(180deg)
+            }
+
+            92% {
+                opacity: .85
+            }
+
+            100% {
+                transform: translate3d(-30px, 112vh, 0) rotate(360deg);
+                opacity: 0
+            }
+        }
+
+        @keyframes burst {
+            0% {
+                transform: translate(0, 0) rotate(0);
+                opacity: 1
+            }
+
+            65% {
+                opacity: 1
+            }
+
+            100% {
+                transform: translate(var(--dx), var(--dy)) rotate(540deg);
+                opacity: 0
+            }
+        }
+
+        @keyframes swingl {
+            to {
+                transform: rotateY(100deg)
+            }
+        }
+
+        @keyframes swingr {
+            to {
+                transform: rotateY(-100deg)
+            }
+        }
+
+        @keyframes dolly {
+            0% {
+                transform: translateZ(-420px) rotateY(-5deg);
+                animation-timing-function: cubic-bezier(.22, 1, .36, 1)
+            }
+
+            40% {
+                transform: none
+            }
+
+            52% {
+                transform: none;
+                animation-timing-function: cubic-bezier(.55, 0, .35, 1)
+            }
+
+            100% {
+                transform: translateZ(1000px)
+            }
+        }
+
+        @keyframes introfade {
+            to {
+                opacity: 0;
+                visibility: hidden
+            }
+        }
+
+        @keyframes skipfade {
+            to {
+                opacity: 0;
+                visibility: hidden
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes splash {
+            0% {
+                opacity: 0
+            }
+
+            20%,
+            75% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden
+            }
+        }
+
+        @keyframes flash {
+            0% {
+                opacity: 0
+            }
+
+            35% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes blink {
+            from {
+                opacity: .25
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* reduced motion: simple fade-in splash, no movement */
+        @media (prefers-reduced-motion:reduce) {
+
+            .card,
+            .u,
+            .diya,
+            .bappa,
+            .petal,
+            .slot,
+            .torana,
+            h1,
+            header p,
+            .find {
+                animation: none !important
+            }
+
+            .scene {
+                display: none
+            }
+
+            #intro {
+                background: linear-gradient(165deg, #ff8a00, #ff2e7e, #7b2ff7);
+                animation: splash 2.4s ease forwards !important
+            }
+
+            #intro::after {
+                content: "shree ganeshay namah";
+                position: absolute;
+                inset: 0;
+                display: grid;
+                place-items: center;
+                font: 400 clamp(1.9rem, 7vw, 3.2rem) 'Yatra One', Georgia, serif;
+                color: #ffe27a
+            }
+
+            .rv {
+                opacity: 1 !important;
+                transform: none !important
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Matoli Information</h1>
-            <p class="subtitle">Discover the amazing world of matoli fruits in ganesh chaturthi</p>
-        </header>
-
-        <div class="search-container">
-            <input type="text" class="search-box" id="searchBox" placeholder="Search for matoli...">
-        </div>
-
-
-
-        <div class="fruits-grid" id="fruitsGrid">
-            <!-- Fruit cards will be dynamically generated -->
-        </div>
-    </div>
-
-    <script>
-        const fruitsData = [
-            {
-                name: "आंब्या ताळे(Aambya Tale)",
-                image: "https://m.media-amazon.com/images/I/31id6nsvXQL._QL70_FMwebp_.jpg",
-                scientific: "Mango Leaves",
-                description: "Mango leaves form an important part of Hindu religion .",
-                nutrition: {
-                },
-                benefits: [
-                    "Mango leaves form an important part of Hindu religion.",
-                    "They are tied to 'matoli' & 'doors' on all auspicious occasions."
-                ]
-            },
-            {
-                name: "नाल्ल (nall)",
-                image: "https://m.media-amazon.com/images/I/51AT8wyDtqL._SY300_SX300_QL70_FMwebp_.jpg",
-                scientific: "Coconut (Cocos nucifera)",
-                description: "Planted throughout the state . It grows & yields better near seacoast than the inland.",
-                nutrition: {
-                    Sanskrit: "नारिकेल",
-                    Hindi: "नारियल",
-                },
-                benefits: [
-                    "All the parts of the tree and fruit are used for several purposes .",
-                    "It forms the source of income for many families ."
-                ]
-            },
-            {
-                name: "केवणीचे व्हाय (Kevniche Dor)",
-                image: "https://www.iafaforallergy.com/wp-content/uploads/2023/11/Avartani-Helicteres-Isora-1.jpg.webp",
-                scientific: "Helicteres Isora",
-                description: "A small tree or large sub-deciduous shrub with grey bark and alternate, ovate, hairy leaves. ",
-                nutrition: {
-                    Hindi: "Mororphali",
-                    Kannada : "Yedmuri",
-                    Marathi : "Muradsheng",
-                    Tamil : "Valampuri",
-                },
-                benefits: [
-                    "A strong fibre is extracted from the bark.",
-                    "Matoli items are traditionally tied only with this fibre."
-                ]
-            },
-            {
-                name: "बेड्या कात्रे (Bedya Katre)",
-                image: "https://nurserylive.com/cdn/shop/products/nurserylive-seeds-areca-catechu-betel-palm-0-5-kg-seeds-16968599273612_600x600.jpg?v=1634213608",
-                scientific: "Areca Catechu",
-                description: "It is a species of palm tree, commonly known as the areca nut or betel nut palm, cultivated throughout tropical Asia for its stimulating and psychoactive seed.",
-                nutrition: {
-                    "Konkani (Also called)" : "Supari",
-                    Marathi : "Supari, Pophal",
-                    Kannada : "Adike",
-                    Hindi : "Supari"
-                },
-                benefits: [
-                    "Cultural and ritualistic use: The areca nut is an auspicious offering in Hindu religious ceremonies, weddings, and as a symbolic exchange of hospitality.",
-                    "Masticatory stimulant: The nut is chewed, often with betel leaf, as a mild stimulant for its energizing and refreshing effect.",
-                    "Traditional medicine: In Ayurvedic practices, areca nut is used to treat intestinal worms, dental plaque, and digestive problems.",
-                    "Industrial products: The fibrous parts of the palm are processed into eco-friendly plates, paperboards, and other building and handicraft materials. "
-                ]
-            },
-            {
-                name: "कुड्या कात्रे (Kudya Katre)",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/%E0%B4%AA%E0%B4%BE%E0%B4%B2%E0%B4%AF%E0%B5%8D%E0%B4%95%E0%B5%8D%E0%B4%95.JPG/500px-%E0%B4%AA%E0%B4%BE%E0%B4%B2%E0%B4%AF%E0%B5%8D%E0%B4%95%E0%B5%8D%E0%B4%95.JPG",
-                scientific: "Tabernaemontana Alternifolia",
-                description: "It is a small, deciduous tree of the Western Ghats, characterized by its white, fragrant flowers, bright orange-yellow, beaked capsules, and medicinal uses, particularly for skin and respiratory issues.",
-                nutrition: {
-                    "Konkani (Also called)" : "NagulKudo",
-                    Marathi : "Nagkuda",
-                    Kannada : "Bilikodsalu or Maddarasa"
-                },
-                benefits: [
-                    "Antimicrobial properties, especially against drug-resistant bacteria causing skin infections.",
-                    "Antidote for snakebites, a practice observed among some Indian tribes.",
-                    "Therapeutic use for skin ailments, including wounds, ulcers, and other skin diseases.",
-                    "Treatment of various illnesses, including diabetes, respiratory problems, and hepatic and renal disorders. "
-                ]
-            },
-            {
-                name: "माट्टी कात्रे (Matti Katre)",
-                image: "https://herbalogy.in/wp-content/uploads/2018/03/Arjuna-Tree-Benefits.jpg",
-                scientific: "Terminalia Crenulata Roth",
-                description: "It is a large deciduous tree native to southern and southeastern Asia, valued for its high-quality timber.",
-                nutrition: {
-                    "Konkani(tree name)" : "Matti",
-                    Hindi : "Asan, Saj, Ashaina, Kaouha",
-                    Marathi : "Ain, Asan, Sadar",
-                    Kannada : "Karimatti, Matti, Sadar"
-                },
-                benefits: [
-                    "For timber and construction: The wood is highly valued for its durability and strength, making it suitable for furniture, cabinetry, boat-building, and railroad ties."
-                ]
-            },
-            {
-                name: "खिळखिळे(KhilKhile)",
-                image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Connarus_paniculatus_13.JPG",
-                scientific: "Connarus monocarpus",
-                description: "It is a species of flowering shrub native to Peninsular India and Sri Lanka, known for its medicinal uses in Ayurveda.",
-                nutrition: {
-                    "Konkani also called " : "घागऱ्यो (Ghagryo)",
-                    Kannada : "Torolakka, Tolage, Toliga",
-                    Marathi : "Sumdari or Sundar",
-                    Tamil : "Chettupulukodi"
-                },
-                benefits: [
-                    "For festive decorations: In some regions, like Goa, the fruits are used as part of the 'matoli', a decorative arrangement during the Ganesh Puja festival.",
-                    "For skin ailments: The bark of the plant is used in traditional medicine, often applied topically as a paste or wash to treat ulcers, wounds, and other skin infections. A paste from the flowers is traditionally used for skin conditions like eczema.",
-                    "Bark extracts have shown antibacterial properties against pathogens like Staphylococcus aureus and Pseudomonas aeruginosa",
-                    "For internal illnesses: In traditional systems, the plant is used to treat a variety of internal ailments, including poisoning, worm infections, blood diseases, and as an aphrodisiac. "
-                ]
-            },
-            {
-                name: "कांगोणा (Kangona)",
-                image: "https://www.phytojournal.com/vol3Issue3/11.1.png",
-                scientific: "Celastrus paniculatus Willd",
-                description: "It is a large, woody climbing shrub from the bittersweet family (Celastraceae) whose seed oil is highly valued in Ayurvedic medicine as a potent brain tonic.",
-                nutrition: {
-                    "Konkani (Also called)" : "Kanglyo"
-                },
-                benefits: [
-                    "Cognitive Enhancement: Used as a brain tonic to improve memory, intellect, and focus.",
-                    "Joint and Nerve Pain Relief: Applied externally as an oil to treat rheumatism, arthritis, and paralysis due to its anti-inflammatory properties.",
-                    "Mental Wellness: Helps manage psychological issues like anxiety, depression, and stress by calming the nervous system.",
-                    "Skin and Hair Health: The oil nourishes the scalp to promote hair growth and is used topically to treat skin conditions like eczema and ulcers. "
-                ]
-            },
-            {
-                name: "निरपणस (Nirpanas)",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Artocarpus_altilis_%28fruit%29.jpg/320px-Artocarpus_altilis_%28fruit%29.jpg",
-                scientific: "Artocarpus Incisus",
-                description: "It is a tropical tree prized for its starchy, nutritious fruit, which when cooked, has a potato-like flavor and a bread-like texture.",
-                nutrition: {
-                    "Konkani (Also called)" : "Jivi kadgi or kadgi",
-                    Marathi : "Nirphanas",
-                    Kannada : "Deevi halasu, gujjekai",
-                    Hindi : "safed kathal"
-                },
-                benefits: [
-                    "It is used to eat as a seasonal vegetable"
-                ]
-            },
-            {
-                name: "घोसाळे (Ghosale)",
-                image: "https://urjaseeds.com/cdn/shop/products/ridgegourdjaipurlong_2_540x.jpg?v=1668593637",
-                scientific: "Ridge gourd (Luffa acutangula)",
-                description: "It is an edible, subtropical vine from the cucumber family known for its distinctive, ridged fruit.",
-                nutrition: {
-                    Hindi : "Turai, Tori, or Nenua",
-                    Marathi : "Dodka or Shirali",
-                    Kannada : "Heerekayi"
-                },
-                benefits: [
-                    "As a vegetable: Young, tender ridge gourds are a mild-flavored, nutritious vegetable used in curries, stir-fries, and soups throughout Asian cuisine.",
-                    "As a loofah: The mature, dried fruit of the ridge gourd becomes a fibrous, natural body and skin exfoliator.",
-                    "In traditional medicine: Various parts of the ridge gourd plant, including the leaves and fruit, are used in Ayurvedic and other traditional practices to treat ailments.",
-                    "As a dietary aid: High in fiber and low in calories, ridge gourd supports digestion and can aid in weight management. "
-                ]
-            },
-            {
-                name: "सीताफळ (Sitaphal)",
-                image: "https://www.saharanpurnursery.in/cdn/shop/files/custardapplegreen_800x800.jpg?v=1718608961",
-                scientific: "Custard Apple (Annona squamosa)",
-                description: "a tropical fruit known for its creamy, sweet flesh. It is a nutrient-dense fruit that offers a variety of health benefits. ",
-                nutrition: {
-                },
-                benefits: [
-                    "Jams and sauces: Sitaphal pulp can be used to create delicious jams, syrups, and fruit sauces for cakes and roasts.",
-                    "Baby food: The soft, energy-rich pulp is a popular and nutritious food for infants.",
-                    "Salads: Chunks of sitaphal can be added to fruit salads for a unique creamy flavor and texture. "
-                ]
-            },
-            {
-                name: "आपोल (Apple)",
-                image: "https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=6.0.84",
-                scientific: "Malus domestica",
-                description: "Not grown in Goa but tied to matoli just as a fruit.",
-                nutrition: {
-                },
-                benefits: [
-                    "Eaten fresh – most common way.",
-                    "Juices & Cider – apple juice is common, while apple cider (fermented) is less common in India.",
-                    "Desserts – apple pie, apple halwa, kheer, barfi, apple jalebi, etc.",
-                    "Pickles & Chutneys – especially in Himachal and Kashmir (spiced apple chutney)."
-                ]
-            },
-            {
-                name: "NOTE!",
-                image: "https://media.istockphoto.com/id/1195839109/vector/harmful-symbol-warning-sign-vector-illustration-eps10.jpg?s=612x612&w=0&k=20&c=1f_viYDt3__7GvDE9UTl2EL0-FMeXKGyYtVn97kzZys=",
-                scientific: "!!Very Important For Readers!!",
-                description: "As the Information of matoli is taken from many people particularly from south goa, it may vary from the other places.The Images may also vary as they are taken from internet.If anybody wants to add more matoli items or wants to suggest changes can please contact 7414922988.",
-                nutrition: {
-                },
-                benefits: [
-                    "This will help me to improve the website quality to make aware the new generations about the tradition of goa ."
-                ]
-            }
-        ];
-
-        let currentFilter = 'all';
-        let searchTerm = '';
-
-        function renderFruits() {
-            const grid = document.getElementById('fruitsGrid');
-            const filteredFruits = fruitsData.filter(fruit => {
-                const matchesSearch = fruit.name.toLowerCase().includes(searchTerm.toLowerCase());
-                return matchesSearch;
-            });
-
-            grid.innerHTML = filteredFruits.map(fruit => `
-                <div class="fruit-card">
-                    <div class="fruit-header">
-                        <img src="${fruit.image}" alt="${fruit.name}" class="fruit-image" loading="lazy">
-                        <div>
-                            <div class="fruit-title">${fruit.name}</div>
-                            <div class="fruit-scientific">${fruit.scientific}</div>
-                        </div>
-                    </div>
-                    <div class="fruit-description">${fruit.description}</div>
-                    <div class="nutrition-grid">
-                        ${Object.entries(fruit.nutrition).map(([key, value]) => 
-                            `<div class="nutrition-item">${key}: ${value}</div>`
-                        ).join('')}
-                    </div>
-                    <div class="benefits">
-                        <h4>Uses:</h4>
-                        <ul>
-                            ${fruit.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
-                        </ul>
+    <div id="intro" aria-hidden="true">
+        <div class="scene">
+            <div class="world">
+                <div class="inner">
+                    <div class="rays"></div>
+                    <div class="om">ॐ</div>
+                    <div class="lamps">🪔 🪔 🪔 🪔 🪔</div>
+                </div>
+                <div class="glow"></div>
+                <div class="gate">
+                    <div class="door l"><i class="h"></i></div>
+                    <div class="door r"><i class="h"></i></div><i class="pil pl"></i><i class="pil pr"></i>
+                    <div class="arch">
+                        <div class="bulbs"></div>
+                        <div class="bp">🪔 श्री गणेश मंडळ 🪔</div>
+                        <div class="sm">Welcome to the Ganesh Pandal</div>
                     </div>
                 </div>
-            `).join('');
+            </div>
+            <div class="skipt">Tap to skip</div>
+        </div>
+    </div>
+    <div class="torana" aria-hidden="true">
+        <div class="cordtop"></div>
+        <div class="row" id="tor"></div>
+    </div>
+    <span class="diya" style="left:10px">🪔</span><span class="diya" style="right:10px;animation-delay:-.6s">🪔</span>
+    <header>
+        <span class="bappa">🙏 Ganpati Bappa Morya! 🙏</span>
+        <h1>माटोळी</h1>
+        <p>Matoli Information: the fruits, leaves and fibres hung above Lord Ganesh during Ganesh Chaturthi in Goa. Tap
+            any hanging piece to learn more!</p>
+        <input class="find" id="q" type="search" placeholder="🔍 Search for matoli…" aria-label="Search matoli">
+    </header>
+    <main id="grid"></main>
+    <section class="note rv">
+        <h3>⚠️ Very important for readers</h3>
+        <p>This information was taken from many people, particularly from South Goa, so it may vary in other places. The
+            images are taken from the internet and may also vary. If you want to add more matoli items or suggest
+            changes, please contact 7414922988.</p>
+        <p><b>This helps me improve the website and make new generations aware of the tradition of Goa.</b></p>
+    </section>
+    <footer class="rv">
+        <p>© 2026 Matoli Information Website</p>
+        <p>Created and maintained with dedication to preserve Goan traditions</p>
+        <p><b>Created by Arav Pagi (14 yrs)</b></p>
+    </footer>
+    <div class="veil" id="veil" role="dialog" aria-modal="true">
+        <div class="sheet" id="sheet"></div>
+    </div>
+    <script>
+        const D = [
+            { n: "आंब्या ताळे", e: "Aambya Tale", s: "Mango Leaves", i: "🍃", img: "https://m.media-amazon.com/images/I/31id6nsvXQL._QL70_FMwebp_.jpg", d: "Mango leaves form an important part of the Hindu religion.", u: ["They are tied to the matoli and to doors on all auspicious occasions."] },
+            { n: "नाल्ल", e: "Nall", s: "Coconut (Cocos nucifera)", i: "🥥", img: "https://m.media-amazon.com/images/I/51AT8wyDtqL._SY300_SX300_QL70_FMwebp_.jpg", d: "Planted throughout the state. It grows and yields better near the seacoast than inland.", l: { Sanskrit: "नारिकेल", Hindi: "नारियल" }, u: ["All parts of the tree and fruit are used for several purposes.", "It is the source of income for many families."] },
+            { n: "केवणीचे व्हाय", e: "Kevniche Dor", s: "Helicteres isora", i: "🪢", img: "https://www.iafaforallergy.com/wp-content/uploads/2023/11/Avartani-Helicteres-Isora-1.jpg.webp", d: "A small tree or large sub-deciduous shrub with grey bark and alternate, ovate, hairy leaves.", l: { Hindi: "Mororphali", Kannada: "Yedmuri", Marathi: "Muradsheng", Tamil: "Valampuri" }, u: ["A strong fibre is extracted from the bark.", "Matoli items are traditionally tied only with this fibre."] },
+            { n: "बेड्या कात्रे", e: "Bedya Katre", s: "Areca catechu", i: "🌰", img: "https://nurserylive.com/cdn/shop/products/nurserylive-seeds-areca-catechu-betel-palm-0-5-kg-seeds-16968599273612_600x600.jpg?v=1634213608", d: "A palm commonly known as the areca nut or betel nut palm, grown across tropical Asia for its stimulating seed.", l: { Konkani: "Supari", Marathi: "Supari, Pophal", Kannada: "Adike", Hindi: "Supari" }, u: ["Cultural use: an auspicious offering in Hindu ceremonies and weddings, and a symbol of hospitality.", "Chewed with betel leaf as a mild, refreshing stimulant.", "Ayurveda uses it for intestinal worms, dental plaque and digestive problems.", "The fibrous parts become eco-friendly plates, paperboards and handicrafts."] },
+            { n: "कुड्या कात्रे", e: "Kudya Katre", s: "Tabernaemontana alternifolia", i: "🌼", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/%E0%B4%AA%E0%B4%BE%E0%B4%B2%E0%B4%AF%E0%B5%8D%E0%B4%95%E0%B5%8D%E0%B4%95.JPG/500px-%E0%B4%AA%E0%B4%BE%E0%B4%B2%E0%B4%AF%E0%B5%8D%E0%B4%95%E0%B5%8D%E0%B4%95.JPG", d: "A small deciduous tree of the Western Ghats with white fragrant flowers, bright orange-yellow beaked capsules and medicinal uses.", l: { Konkani: "Nagul Kudo", Marathi: "Nagkuda", Kannada: "Bilikodsalu, Maddarasa" }, u: ["Antimicrobial, especially against drug-resistant bacteria causing skin infections.", "Antidote for snakebites, as practised by some Indian tribes.", "Used for wounds, ulcers and other skin ailments.", "Used for diabetes, respiratory problems, and liver and kidney disorders."] },
+            { n: "माट्टी कात्रे", e: "Matti Katre", s: "Terminalia crenulata Roth", i: "🌳", img: "https://herbalogy.in/wp-content/uploads/2018/03/Arjuna-Tree-Benefits.jpg", d: "A large deciduous tree native to southern and southeastern Asia, valued for its high-quality timber.", l: { Konkani: "Matti", Hindi: "Asan, Saj, Ashaina, Kaouha", Marathi: "Ain, Asan, Sadar", Kannada: "Karimatti, Matti, Sadar" }, u: ["Timber and construction: durable, strong wood for furniture, cabinetry, boat-building and railroad ties."] },
+            { n: "खिळखिळे", e: "KhilKhile", s: "Connarus monocarpus", i: "🌺", img: "https://upload.wikimedia.org/wikipedia/commons/1/19/Connarus_paniculatus_13.JPG", d: "A flowering shrub native to Peninsular India and Sri Lanka, known for medicinal uses in Ayurveda.", l: { Konkani: "घागऱ्यो (Ghagryo)", Kannada: "Torolakka, Tolage, Toliga", Marathi: "Sumdari, Sundar", Tamil: "Chettupulukodi" }, u: ["Festive decoration: in places like Goa the fruits are part of the matoli during Ganesh Puja.", "Bark paste or wash treats ulcers, wounds and skin infections; a flower paste is used for eczema.", "Bark extracts show antibacterial action against Staphylococcus aureus and Pseudomonas aeruginosa.", "Traditionally used for poisoning, worm infections and blood diseases."] },
+            { n: "कांगोणा", e: "Kangona", s: "Celastrus paniculatus Willd", i: "🌿", img: "https://www.phytojournal.com/vol3Issue3/11.1.png", d: "A large woody climbing shrub of the Celastraceae family whose seed oil is a prized Ayurvedic brain tonic.", l: { Konkani: "Kanglyo" }, u: ["Brain tonic to improve memory, intellect and focus.", "Oil applied externally for rheumatism, arthritis and paralysis.", "Helps manage anxiety, depression and stress.", "Nourishes the scalp for hair growth and treats eczema and ulcers."] },
+            { n: "निरपणस", e: "Nirpanas", s: "Artocarpus incisus", i: "🍈", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Artocarpus_altilis_%28fruit%29.jpg/320px-Artocarpus_altilis_%28fruit%29.jpg", d: "A tropical tree prized for its starchy fruit, which has a potato-like flavour and bread-like texture when cooked.", l: { Konkani: "Jivi kadgi, Kadgi", Marathi: "Nirphanas", Kannada: "Deevi halasu, Gujjekai", Hindi: "Safed kathal" }, u: ["Eaten as a seasonal vegetable."] },
+            { n: "घोसाळे", e: "Ghosale", s: "Ridge gourd (Luffa acutangula)", i: "🥒", img: "https://urjaseeds.com/cdn/shop/products/ridgegourdjaipurlong_2_540x.jpg?v=1668593637", d: "An edible subtropical vine of the cucumber family known for its ridged fruit.", l: { Hindi: "Turai, Tori, Nenua", Marathi: "Dodka, Shirali", Kannada: "Heerekayi" }, u: ["Vegetable: young, tender fruits go into curries, stir-fries and soups.", "Loofah: the mature dried fruit is a natural body exfoliator.", "Leaves and fruit are used in Ayurveda and other traditional practices.", "High in fibre and low in calories, it supports digestion and weight management."] },
+            { n: "सीताफळ", e: "Sitaphal", s: "Custard Apple (Annona squamosa)", i: "🍏", img: "https://www.saharanpurnursery.in/cdn/shop/files/custardapplegreen_800x800.jpg?v=1718608961", d: "A tropical fruit with creamy, sweet flesh, packed with nutrients.", u: ["Jams and sauces: the pulp makes jams, syrups and fruit sauces.", "Baby food: soft, energy-rich pulp for infants.", "Salads: chunks add creamy flavour to fruit salads."] },
+            { n: "आपोल", e: "Apple", s: "Malus domestica", i: "🍎", img: "https://www.collinsdictionary.com/images/thumb/apple_158989157_250.jpg?version=6.0.84", d: "Not grown in Goa, but tied to the matoli just as a fruit.", u: ["Eaten fresh, the most common way.", "Juices and cider; apple juice is common in India.", "Desserts: apple pie, halwa, kheer, barfi, jalebi.", "Pickles and chutneys, especially in Himachal and Kashmir."] }
+        ];
+        const C = ["#e91e63", "#ff6d00", "#00a86b", "#7b2ff7", "#d50000", "#0091ea"];
+        const $ = id => document.getElementById(id);
+        const leaf = g => `<svg width="30" height="84" viewBox="0 0 30 84"><path d="M15 0C31 22 28 58 15 84 2 58-1 22 15 0Z" fill="${g}"/><path d="M15 6V80" stroke="#0b5a24" stroke-width="1.5"/></svg>`;
+        $('tor').innerHTML = Array.from({ length: 46 }, (_, k) => `<div class="u" style="animation-delay:${-(k % 7) * .45}s">${k % 2 ? '<span class="st"></span><span class="mg"></span>' : leaf(k % 4 ? '#22b04f' : '#138a3a')}</div>`).join('');
+        const pic = (x) => `<span class="ph"><img src="${x.img}" alt="${x.e}" loading="lazy" onerror="this.replaceWith('${x.i}')"></span>`;
+        $('grid').innerHTML = D.map((x, k) => `<div class="slot" style="--c:${C[k % 6]};--i:${k}"><span class="rope" style="--l:${28 + (k * 29) % 56}px"></span><button class="card" data-k="${k}" style="--t:${5 + (k % 5) * .6}s;--d:${-(k % 6) * .6}s">${pic(x)}<span class="nm">${x.n}</span><span class="en">${x.e}</span><span class="sc">${x.s}</span><span class="tap">Tap for info</span></button></div>`).join('');
+        let last;
+        function open(k) {
+            const x = D[k]; last = document.activeElement;
+            const nm = x.l ? '<div class="names">' + Object.entries(x.l).map(([a, b]) => `<b>${a}: ${b}</b>`).join('') + '</div>' : '';
+            $('sheet').style.setProperty('--c', C[k % 6]);
+            $('sheet').innerHTML = `<button class="x" id="cl">Close ✕</button><div class="top">${pic(x)}<div><h2>${x.n}</h2><div><b>${x.e}</b> · <i>${x.s}</i></div></div></div><p style="margin-top:12px">${x.d}</p>${nm}<b>Information:</b><ul>${x.u.map(t => `<li>${t}</li>`).join('')}</ul>`;
+            $('veil').classList.remove('out'); $('veil').classList.add('on'); $('cl').focus();
         }
-
-        // Search functionality
-        document.getElementById('searchBox').addEventListener('input', (e) => {
-            searchTerm = e.target.value;
-            renderFruits();
+        function close() { const v = $('veil'); if (!v.classList.contains('on') || v.classList.contains('out')) return; v.classList.add('out'); setTimeout(() => v.classList.remove('on', 'out'), 300); last && last.focus(); }
+        $('grid').addEventListener('click', e => { const b = e.target.closest('.card'); b && open(+b.dataset.k) });
+        $('veil').addEventListener('click', e => { if (e.target.id === 'veil' || e.target.id === 'cl') close() });
+        addEventListener('keydown', e => { e.key === 'Escape' && close() });
+        $('q').addEventListener('input', () => {
+            const t = $('q').value.toLowerCase().trim();
+            [...$('grid').children].forEach((el, k) => { const x = D[k]; el.classList.toggle('off', !!t && !(x.n + x.e + x.s).toLowerCase().includes(t)) })
         });
 
-        // Initial render
-        renderFruits();
-    </script>
-    </div>
+        // ---- animations ----
+        const calm = matchMedia('(prefers-reduced-motion:reduce)').matches;
+        if (!calm) {
+            const P = ['🌼', '🌸', '🏵️', '🌺', '🍃'];
+            for (let k = 0; k < 12; k++) {
+                const e = document.createElement('span'); e.className = 'petal'; e.textContent = P[k % 5];
+                e.style.cssText = `left:${Math.random() * 100}%;font-size:${16 + Math.random() * 16}px;animation-duration:${16 + Math.random() * 12}s;animation-delay:${-Math.random() * 28}s`;
+                document.body.append(e);
+            }
+        }
+        function burst(x, y) {
+            if (calm) return; for (let k = 0; k < 26; k++) {
+                const e = document.createElement('i'); e.className = 'cf'; const a = Math.random() * 6.28, r = 80 + Math.random() * 180;
+                e.style.cssText = `left:${x}px;top:${y}px;background:${C[k % 6]};--dx:${Math.cos(a) * r}px;--dy:${Math.sin(a) * r + 90}px`; document.body.append(e); setTimeout(() => e.remove(), 1600);
+            }
+        }
+        $('grid').addEventListener('click', e => { const b = e.target.closest('.card'); if (b) { const r = b.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 3); } });
+        const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target) } }), { threshold: .2 }) : null;
+        document.querySelectorAll('.rv').forEach(el => io ? io.observe(el) : el.classList.add('in'));
 
-    <footer style="text-align: center; margin-top: 40px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 15px; color: white;">
-        <p>2026 Matoli Information Website.</p>
-        <p>Created and maintained with dedication to preserve Goan traditions</p>
-        <p>Created by Arav Pagi (14 yrs)</p>
-    </footer>
 
+        // intro: removes itself; tap to skip
+        const intro = $('intro');
+        setTimeout(() => intro.remove(), 6300);
+        intro.addEventListener('click', () => { document.documentElement.style.setProperty('--o', '.3s'); intro.style.animation = 'skipfade .5s ease forwards'; setTimeout(() => intro.remove(), 600) });
     </script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
